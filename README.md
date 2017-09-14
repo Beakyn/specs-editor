@@ -12,10 +12,6 @@
 <br>
 <br>
 
-<a href="https://codeclimate.com/github/Beakyn/bkn-specs-editor">
-	<img src="https://codeclimate.com/github/Beakyn/bkn-specs-editor/badges/gpa.svg" />
-</a>
-
 <a href="https://david-dm.org/Beakyn/bkn-specs-editor" title="dependencies status">
 	<img src="https://david-dm.org/Beakyn/bkn-specs-editor/status.svg"/>
 </a>

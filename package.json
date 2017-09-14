@@ -1,0 +1,41 @@
+{
+  "name": "bkn-specs-editor",
+  "version": "1.0.0",
+  "description": "Serves Swagger Editor over local spec files and updates on every change.",
+  "license": "MIT",
+  "repository": "Beakyn/bkn-specs-editor",
+  "author": {
+    "name": "Beakyn",
+    "email": "contact@beakyn.com"
+  },
+  "bin": {
+    "bkn-specs-editor": "cli.js"
+  },
+  "engines": {
+    "node": "8.x.x"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "swagger",
+    "swagger editor",
+    "live reloading"
+  ],
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "connect": "^3.6.3",
+    "global": "^4.3.2",
+    "meow": "^3.7.0",
+    "swagger-repo": "^1.4.2"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "execa": "^0.6.0",
+    "xo": "*"
+  }
+}
