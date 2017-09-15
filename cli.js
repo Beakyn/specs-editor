@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 const meow = require('meow');
+const open = require('opn');
+const chalk = require('chalk');
+const {constants} = require('./constants');
 const {liveEditorServer} = require('./');
 
 const cli = meow(`
@@ -29,4 +32,20 @@ const cli = meow(`
 	}
 );
 
-liveEditorServer(cli.flags);
+const {port} = cli.flags;
+const {DEFAULT_PORT} = constants;
+
+const serve = async function (port = DEFAULT_PORT) {
+	try {
+		console.log(`
+      API Specs Editor now running on port: ${chalk.hex('#DEADED').underline(port)}
+      Have a great time writing docs @ ${chalk.rgb(255, 108, 69).bold('BEAKYN COMPANY')}
+    `);
+		await liveEditorServer(port);
+		await open(`http://localhost:${port}`);
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+serve(port);
