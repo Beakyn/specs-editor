@@ -29,7 +29,118 @@
 
 ---
 
-### Usage
+## Table of Contents
+
+<!-- DO NOT EDIT THE COMMENTS BELOW -->
+
+<!-- toc -->
+
+- [Usage](#usage)
+  * [Basic](#basic)
+    + [Working on the Specification](#working-on-the-specification)
+    + [Adding to an Existing Project](#adding-to-an-existing-project)
+  * [Advanced](#advanced)
+    + [API](#api)
+      - [`liveEditorServer(port)`](#liveeditorserverport)
+    + [CLI](#cli)
+      - [`$ bkn-specs-editor --port`](#-bkn-specs-editor---port)
+- [License](#license)
+
+<!-- tocstop -->
+
+## Usage
+
+### Basic
+
+#### Working on the Specification
+
+> These are the basic steps when working with a repo that uses [bkn-specs-editor](https://github.com/Beakyn/bkn-specs-editor) inside `devDependencies`.
+
+1. Go the project repository of which the spec you'd like to work on–e.g. `Beakyn/gsp-geofence-api`.
+
+1. Run the specs editing script–usually `npm run docs:specs:edit`.
+
+1. A new tab on your browser will open running an instance of the [Swagger Editor](https://swagger.io/swagger-editor/).
+
+1. Write everything you need. All changes are immediately propagated through the `spec/` directory.
+
+1. Once you finish with the changes you can run the bundling script using: `npm run docs:specs:build`.
+
+1. Share you changes with the rest of the world by pushing to the `master` branch on GitHub.
+
+#### Adding to an Existing Project
+
+> These are the basic steps when adding [bkn-specs-editor](https://github.com/Beakyn/bkn-specs-editor)
+to an existing API project documentation workflow.
+
+1. Add it inside `devDependencies`:
+
+    ```sh
+    # Using npm
+    npm install --save-dev bkn-specs-editor
+
+    # Using yarn
+    yarn add --dev bkn-specs-editor
+    ```
+
+1. Ensure you have the following structure in your project:
+
+    ```sh
+    |-- spec/
+    |   |-- definitions/
+    |   |-- paths/
+    |   |-- swagger.yml
+    |-- package.json
+    |-- ...
+    ```
+
+1. Add a specs editing script–standarized as `npm run docs:specs:edit` in your `package.json`:
+
+    ```json
+    {
+      "name": "gsp-geofence-api",
+      ...
+      "scripts": {
+        ...
+        "docs:specs:edit": "bkn-specs-editor"
+      },
+      "dependencies": {
+        ...
+      },
+      "devDependencies": {
+        ...
+        "bkn-specs-editor": "^1.1.1"
+      }
+    }
+    ```
+
+1. Add a bundling script–standarized as `npm run docs:specs:build` in your `package.json`:
+
+    ```json
+    {
+      "name": "gsp-geofence-api",
+      ...
+      "scripts": {
+        ...
+        "docs:specs:edit": "bkn-specs-editor",
+        ...
+        "docs:specs:swagger": "swagger-repo",
+        "docs:specs:build": "npm run docs:specs:swagger bundle -- --yaml -o spec/index.yaml"
+      },
+      "dependencies": {
+        ...
+      },
+      "devDependencies": {
+        ...
+        "bkn-specs-editor": "^1.1.1",
+        "swagger-repo": "^1.4.2"
+      }
+    }
+    ```
+
+1. You can now start [working on the specification](#working-on-the-specification).
+
+### Advanced
 
 #### API
 
@@ -71,7 +182,7 @@ yarn add global bkn-specs-editor
 
 **Does**: Enables live editing of the Swagger API file on the selected port.
 
-### License
+## License
 
 This project is licensed under the terms of the
 [MIT license](https://github.com/Beakyn/bkn-ui-react/blob/master/LICENSE)
