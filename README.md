@@ -172,7 +172,7 @@ npm install -g bkn-specs-editor
 yarn add global bkn-specs-editor
 ```
 
-##### `$ bkn-specs-editor --port`
+##### `$ bkn-specs-editor serve --port`
 
 **Receives**:
 
@@ -181,6 +181,16 @@ yarn add global bkn-specs-editor
 > An available port to start listening on (defaults to `3001`).
 
 **Does**: Enables live editing of the Swagger API file on the selected port.
+
+##### `$ bkn-specs-editor bundle --destinationPath`
+
+**Receives**:
+
+- `destinationPath`: `string`
+
+> The output file path (defaults to 'spec/index.yaml').
+
+**Does**: Bundles the multi-file Swagger spec into one.
 
 ## License
 
