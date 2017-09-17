@@ -43,7 +43,8 @@
     + [API](#api)
       - [`liveEditorServer(port)`](#liveeditorserverport)
     + [CLI](#cli)
-      - [`$ bkn-specs-editor --port`](#-bkn-specs-editor---port)
+      - [`$ bkn-specs-editor serve --port`](#-bkn-specs-editor-serve---port)
+      - [`$ bkn-specs-editor bundle --destinationPath`](#-bkn-specs-editor-bundle---destinationpath)
 - [License](#license)
 
 <!-- tocstop -->
@@ -103,14 +104,8 @@ to an existing API project documentation workflow.
       "scripts": {
         ...
         "docs:specs:edit": "bkn-specs-editor serve"
-      },
-      "dependencies": {
-        ...
-      },
-      "devDependencies": {
-        ...
-        "bkn-specs-editor": "^1.1.1"
       }
+      ...
     }
     ```
 
@@ -123,16 +118,9 @@ to an existing API project documentation workflow.
       "scripts": {
         ...
         "docs:specs:edit": "bkn-specs-editor serve",
-        ...
         "docs:specs:build": "bkn-specs-editor bundle"
       },
-      "dependencies": {
-        ...
-      },
-      "devDependencies": {
-        ...
-        "bkn-specs-editor": "^1.1.1"
-      }
+      ...
     }
     ```
 
