@@ -102,7 +102,7 @@ to an existing API project documentation workflow.
       ...
       "scripts": {
         ...
-        "docs:specs:edit": "bkn-specs-editor"
+        "docs:specs:edit": "bkn-specs-editor serve"
       },
       "dependencies": {
         ...
@@ -122,18 +122,16 @@ to an existing API project documentation workflow.
       ...
       "scripts": {
         ...
-        "docs:specs:edit": "bkn-specs-editor",
+        "docs:specs:edit": "bkn-specs-editor serve",
         ...
-        "docs:specs:swagger": "swagger-repo",
-        "docs:specs:build": "npm run docs:specs:swagger bundle -- --yaml -o spec/index.yaml"
+        "docs:specs:build": "bkn-specs-editor bundle"
       },
       "dependencies": {
         ...
       },
       "devDependencies": {
         ...
-        "bkn-specs-editor": "^1.1.1",
-        "swagger-repo": "^1.4.2"
+        "bkn-specs-editor": "^1.1.1"
       }
     }
     ```

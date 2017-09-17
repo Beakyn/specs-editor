@@ -1,6 +1,6 @@
 {
   "name": "bkn-specs-editor",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Serves Swagger Editor over local spec files and updates on every change.",
   "license": "MIT",
   "repository": "Beakyn/bkn-specs-editor",
@@ -23,7 +23,8 @@
     "index.js",
     "cli/index.js",
     "cli/_build.js",
-    "cli/_serve.js"
+    "cli/_serve.js",
+    "constants.js"
   ],
   "keywords": [
     "swagger",
@@ -41,7 +42,6 @@
   },
   "devDependencies": {
     "ava": "*",
-    "execa": "^0.6.0",
     "xo": "*"
   }
 }
