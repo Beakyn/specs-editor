@@ -19,7 +19,8 @@ const cli = meow(`
       ${chalk.rgb(255, 108, 69).bold('Description:')} Bundles the multi-file Swagger spec into one.
 
       ${chalk.rgb(255, 108, 69).bold('Options:')}
-        -d, --dest    The output file (default: 'spec/index.yaml')
+        -d, --dest    The output file path (default: 'spec/index.json')
+        -f, --format  The output file format (default: '.json')
 
     ${chalk.rgb(255, 108, 69).bold('Options(General):')}
       -h, --help      Brings you here :)
@@ -29,6 +30,7 @@ const cli = meow(`
 		alias: {
 			p: 'port',
 			d: 'dest',
+			f: 'format',
 			h: 'help'
 		}
 	}
@@ -40,8 +42,8 @@ switch (cli.input[0]) {
 		serve(port);
 		break;
 	case 'bundle':
-		const {dest} = cli.flags;
-		bundle(dest);
+		const {dest, format} = cli.flags;
+		bundle(dest, format);
 		break;
 	default:
 		console.log(`

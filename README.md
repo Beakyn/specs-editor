@@ -174,7 +174,11 @@ yarn add global bkn-specs-editor
 
 - `destinationPath`: `string`
 
-> The output file path (defaults to 'spec/index.yaml').
+> The output file path (defaults to 'spec/index.json').
+
+- `format`: `string` (`json` | `yaml`)
+
+> The output file format (defaults to 'json').
 
 **Does**: Bundles the multi-file Swagger spec into one.
 

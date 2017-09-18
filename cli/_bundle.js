@@ -4,9 +4,11 @@ const chalk = require('chalk');
 
 const execp = promisify(exec);
 
-exports.bundle = async function (destinationPath = 'spec/index.yaml') {
+exports.bundle = async function (destinationPath = 'spec/index.json', format = 'json') {
 	try {
-		await execp(`swagger-repo bundle --yaml -o ${destinationPath}`);
+    (format === 'json')
+      ? await execp(`swagger-repo bundle -o ${destinationPath}`)
+      : await execp(`swagger-repo bundle --yaml -o ${destinationPath}`);
 		console.log(`
       API Specs successfully written at: ${chalk.hex('#DEADED').underline(destinationPath)}
       Have a great time writing docs @ ${chalk.rgb(255, 108, 69).bold('Beakyn Company')} 🚀 .
