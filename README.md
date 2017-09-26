@@ -168,7 +168,7 @@ yarn add global bkn-specs-editor
 
 **Does**: Enables live editing of the Swagger API file on the selected port.
 
-##### `$ bkn-specs-editor bundle --destinationPath`
+##### `$ bkn-specs-editor bundle --destinationPath --format`
 
 **Receives**:
 
@@ -181,6 +181,14 @@ yarn add global bkn-specs-editor
 > The output file format (defaults to 'json').
 
 **Does**: Bundles the multi-file Swagger spec into one.
+
+##### `$ bkn-specs-editor lint`
+
+**Receives**:
+
+> *Nothing*.
+
+**Does**: Validates the current spec.
 
 ## License
 
