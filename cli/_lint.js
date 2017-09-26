@@ -2,17 +2,18 @@ const {promisify} = require('util');
 const chalk = require('chalk');
 const {validate, bundle} = require('swagger-repo');
 const {isEmpty, forEach} = require('ramda');
+const {red, magenta, yellow} = require('../constants').cli.colors;
 
 const validatep = promisify(validate);
 const log = event => {
 	console.log(`
-    ${chalk.hex('#DEADED').bold('ID:')} ${event.code}.
-    ${chalk.hex('#DEADED').bold('Description:')} ${event.message}.
-    ${chalk.hex('#DEADED').bold('Path:')} ${event.path.join(' > ')}.
+    ${chalk.hex(magenta).bold('ID:')} ${event.code}.
+    ${chalk.hex(magenta).bold('Description:')} ${event.message}.
+    ${chalk.hex(magenta).bold('Path:')} ${event.path.join(' > ')}.
   `);
 };
 
-exports.lint = async () => {
+const lint = async () => {
 	const source = bundle();
 	const results = await validatep(source);
 
@@ -21,7 +22,7 @@ exports.lint = async () => {
 
 	if (containsErrors) {
 		console.log(`
-    ${chalk.hex('#FF6C45').bold('Errors found:')}`);
+    ${chalk.hex(red).bold('Errors found:')}`);
 		const errors = results.errors;
 		forEach(log, errors);
 		process.exitCode = 255;
@@ -29,8 +30,10 @@ exports.lint = async () => {
 
 	if (containsWarnings) {
 		console.log(`
-    ${chalk.hex('#F1C40F').bold('Warnings found:')}`);
+    ${chalk.hex(yellow).bold('Warnings found:')}`);
 		const warnings = results.warnings;
 		forEach(log, warnings);
 	}
 };
+
+module.exports = lint;

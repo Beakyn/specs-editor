@@ -1,19 +1,21 @@
 const open = require('opn');
 const chalk = require('chalk');
-const {constants} = require('../constants');
 const {liveEditorServer} = require('../');
+const {cli, defaultPort} = require('../constants');
 
-const {DEFAULT_PORT} = constants;
+const {red, magenta} = cli.colors;
 
-exports.serve = async function (port = DEFAULT_PORT) {
+const serve = async function (port = defaultPort) {
 	try {
 		console.log(`
-      API Specs Editor now running on port: ${chalk.hex('#DEADED').underline(port)}
-      Have a great time writing docs @ ${chalk.rgb(255, 108, 69).bold('Beakyn Company')} 🚀 .
-      `);
+    API Specs Editor now running on port: ${chalk.hex(magenta).underline(port)}
+    Have a great time writing docs @ ${chalk.hex(red).bold('Beakyn Company')} 🚀 .
+    `);
 		await liveEditorServer(port);
 		await open(`http://localhost:${port}`);
 	} catch (err) {
 		console.log(err);
 	}
 };
+
+module.exports = serve;

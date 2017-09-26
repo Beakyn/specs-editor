@@ -1,32 +1,33 @@
 #!/usr/bin/env node
 const meow = require('meow');
 const chalk = require('chalk');
-const {serve} = require('./_serve');
-const {bundle} = require('./_bundle');
-const {lint} = require('./_lint');
+const {red, magenta} = require('../constants').cli.colors;
+const serve = require('./_serve');
+const bundle = require('./_bundle');
+const lint = require('./_lint');
 
 const cli = meow(`
 
-  ${chalk.rgb(255, 108, 69).bold('Commands:')}
+  ${chalk.hex(red).bold('Commands:')}
 
-    ${chalk.hex('#DEADED').bold('$ bkn-specs-editor serve')}
+    ${chalk.hex(magenta).bold('$ bkn-specs-editor serve')}
 
-      ${chalk.rgb(255, 108, 69).bold('Description:')} Serves documentation editor.
+      ${chalk.hex(red).bold('Description:')} Serves documentation editor.
 
-      ${chalk.rgb(255, 108, 69).bold('Options:')}
+      ${chalk.hex(red).bold('Options:')}
         -p, --port     Port to listen on (default: 3001)
 
-    ${chalk.hex('#DEADED').bold('$ bkn-specs-editor bundle')}
+    ${chalk.hex(magenta).bold('$ bkn-specs-editor bundle')}
 
-      ${chalk.rgb(255, 108, 69).bold('Description:')} Bundles the multi-file Swagger spec into one.
+      ${chalk.hex(red).bold('Description:')} Bundles the multi-file Swagger spec into one.
 
-      ${chalk.rgb(255, 108, 69).bold('Options:')}
+      ${chalk.hex(red).bold('Options:')}
         -d, --dest    The output file path (default: 'spec/index.json')
         -f, --format  The output file format (default: '.json')
 
-    ${chalk.hex('#DEADED').bold('$ bkn-specs-editor lint')}
+    ${chalk.hex(magenta).bold('$ bkn-specs-editor lint')}
 
-      ${chalk.rgb(255, 108, 69).bold('Description:')} Validates the current spec.
+      ${chalk.hex(red).bold('Description:')} Validates the current spec.
 	`,
 	{
 		alias: {
@@ -52,7 +53,7 @@ switch (cli.input[0]) {
 		break;
 	default:
 		console.log(`
-      ${chalk.rgb(255, 108, 69).bold('Bad command 😓 ')}.
-      Try running ${chalk.hex('#DEADED').bold('$ bkn-specs-editor --help')} to get instructions 📃 .
+    ${chalk.hex(red).bold('Bad command 😓 ')}.
+    Try running ${chalk.hex(magenta).bold('$ bkn-specs-editor --help')} to get instructions 📃 .
     `);
 }
