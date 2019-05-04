@@ -1,33 +1,8 @@
-<h1 align="center">
-	<img src="banner.png" alt="Banner" width="800px">
-	<br>
-	<br>
-</h1>
+<img src="https://static1.squarespace.com/static/5897ae3d1b10e38edfec3e32/t/58986a0dcd0f689b985fb123/1532278715866/?format=1500w" height="30" />
 
-<br>
-<br>
+## Beakyn Specs Editor
 
-<p align="center">
-  Serves Swagger Editor over local spec files and updates on every change.
-<br>
-<br>
-
-<a href="https://david-dm.org/Beakyn/bkn-specs-editor" title="dependencies status">
-	<img src="https://david-dm.org/Beakyn/bkn-specs-editor/status.svg"/>
-</a>
-
-<a href="https://david-dm.org/Beakyn/bkn-specs-editor?type=dev" title="devDependencies status">
-	<img src="https://david-dm.org/Beakyn/bkn-specs-editor/dev-status.svg"/>
-</a>
-
-<a href="LICENSE.md">
-    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
-</a>
-
-</p>
-<br>
-
----
+Serves Swagger Editor over local spec files and updates on every change.
 
 ## Table of Contents
 
